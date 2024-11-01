@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "app": "node app.js"
+    "main": "node app.js"
   },
   "repository": {
     "type": "git",
