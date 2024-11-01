@@ -2,6 +2,10 @@ const https = require("https");
 const TARGET_URL =
   "https://api.shopping-charm.jp/v1/shopping/products/{ID}?include=productStock";
 const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
+if (SLACK_WEBHOOK_URL === '' || ! URL.canParse(SLACK_WEBHOOK_URL)) {
+  console.log("SLACK_WEBHOOK_URLが正しく設定されていません")
+  process.exit(1);
+}
 
 const jsoncParser = require("jsonc-parser");
 const fs = require("fs");
