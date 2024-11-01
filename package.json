@@ -1,0 +1,19 @@
+{
+  "name": "charm-stock-notifier",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "app": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faruryo/charm-stock-notifier.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/faruryo/charm-stock-notifier/issues"
+  },
+  "homepage": "https://github.com/faruryo/charm-stock-notifier#readme",
+  "description": ""
+}
