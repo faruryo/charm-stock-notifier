@@ -3,10 +3,14 @@ const TARGET_URL =
   "https://api.shopping-charm.jp/v1/shopping/products/{ID}?include=productStock";
 const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
 
-const SETTINGS = require("./settings.json");
+const jsoncParser = require("jsonc-parser");
+const fs = require("fs");
 
-SETTINGS.productIDs.forEach((id) => {
-    const url = TARGET_URL.replace("{ID}", id)
+const fileContent = fs.readFileSync("config.jsonc", "utf8");
+const config = jsoncParser.parse(fileContent);
+
+config.productIDs.forEach((id) => {
+  const url = makeCharmProductsURL(id);
   // JSONデータを取得して処理
   https
     .get(url, (res) => {
@@ -51,3 +55,7 @@ SETTINGS.productIDs.forEach((id) => {
       console.error("エラーが発生しました:", err);
     });
 });
+
+function makeCharmProductsURL(id) {
+  return TARGET_URL.replace("{ID}", id);
+}
